@@ -135,6 +135,5 @@ Input (48 × 48 × 1)
 
 
 
-## 📄 License
-
+##  License
 FER2013 is publicly available on Kaggle under its own terms of use.13 is publicly available on Kaggle under its own terms of use.
