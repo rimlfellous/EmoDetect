@@ -2,10 +2,9 @@
 
 A CNN-powered webcam system that detects and classifies 7 human emotions in real time, trained on FER2013.
 
----
 
 ##  Project Structure
-```
+
 EmoDetect/
 │
 ├── Model_Training.ipynb          # Training pipeline
@@ -18,11 +17,10 @@ EmoDetect/
 │   └── confusion_matrix.png
 │
 └── README.md
-```
+
 
 > The FER2013 dataset and trained weights are not included due to size.
 
----
 
 ##  Features
 
@@ -33,7 +31,6 @@ EmoDetect/
 - CPU-only — no GPU needed, runs on any laptop
 - Standalone `app.py` — run the demo straight from terminal, no Jupyter needed
 
----
 
 ##  Getting Started
 
@@ -59,7 +56,7 @@ SAVE_DIR     = r"C:\Users\YourName\Desktop\FER2013_results"
 WEIGHTS_PATH = r"C:\Users\YourName\Desktop\FER2013_results\emotion_model.weights.h5"
 ```
 
----
+
 
 ##  Usage
 
@@ -89,7 +86,7 @@ Press **Q** to quit.
 
 > **Troubleshooting:** If the webcam window doesn't open, check camera permissions. If weights fail to load, verify `WEIGHTS_PATH` is correct. If TensorFlow errors appear, confirm you're in the right environment.
 
----
+
 
 ##  Dataset
 
@@ -105,7 +102,6 @@ FER2013 — 35,887 grayscale 48×48 images, 7 classes. [Download on Kaggle](http
 | Surprise | 4,002 | 2.0× |
 | Disgust | 436 | 9.4× |
 
----
 
 ##  Model Architecture
 
@@ -122,7 +118,7 @@ Input (48 × 48 × 1)
 └── Dense(7, softmax)
 ```
 
----
+
 
 ##  Training Details
 
@@ -135,13 +131,13 @@ Input (48 × 48 × 1)
 | Early stopping | Patience = 10 epochs |
 | Augmentation | Rotation ±15°, zoom 10%, h-flip |
 
----
+
 
 ##  Results
 
 ~63% validation accuracy on FER2013. Fear/Sad confusion is expected and mirrors human inter-rater disagreement on this dataset.
 
----
+
 
 ##  Known Limitations
 
@@ -150,8 +146,8 @@ Input (48 × 48 × 1)
 - Dataset skews toward posed/exaggerated expressions, not subtle real-world ones
 - No GPU support on native Windows (TF ≥ 2.11) — use WSL2 or TensorFlow-DirectML
 
----
+
 
 ## 📄 License
 
-Educational use only. FER2013 is publicly available on Kaggle under its own terms of use.13 is publicly available on Kaggle under its own terms of use.
+FER2013 is publicly available on Kaggle under its own terms of use.13 is publicly available on Kaggle under its own terms of use.
