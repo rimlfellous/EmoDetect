@@ -1,8 +1,8 @@
  
-# EmoDetect
+### EmoDetect
 A CNN-powered webcam system that detects and classifies 7 human emotions in real time, trained on FER2013.
 
-##  Project Structure
+###  Project Structure
 ```
 EmoDetect/
 │
@@ -19,7 +19,7 @@ EmoDetect/
 ```
 > The FER2013 dataset and trained weights are not included due to size.
 
-##  Features
+###  Features
 - Real-time face detection via OpenCV Haar Cascade
 - 7-class emotion classification (Angry, Disgusted, Fearful, Happy, Neutral, Sad, Surprised)
 - Temporal smoothing over 8 frames — no flickering labels
@@ -27,7 +27,7 @@ EmoDetect/
 - CPU-only — no GPU needed, runs on any laptop
 - Standalone `app.py` — run the demo straight from terminal, no Jupyter needed
 
-##  Getting Started
+###  Getting Started
 **Prerequisites:** Python 3.9+, Anaconda recommended
 ```bash
 git clone https://github.com/your-username/emodetect.git
@@ -35,7 +35,7 @@ cd emodetect
 pip install tensorflow opencv-python scikit-learn matplotlib seaborn ipywidgets
 ```
 
-### Path Configuration
+#### Path Configuration
 Update these before running anything:
 
 **`Model_Training.ipynb` — cell 2:**
@@ -49,9 +49,9 @@ SAVE_DIR     = r"C:\Users\YourName\Desktop\FER2013_results"
 WEIGHTS_PATH = r"C:\Users\YourName\Desktop\FER2013_results\emotion_model.weights.h5"
 ```
 
-##  Usage
+###  Usage
 
-### Option A — Jupyter
+#### Option A — Jupyter
 1. Run all cells in `Model_Training.ipynb` to train *(2–4 hrs on CPU)*
 2. Run all cells in `Emotion_App.ipynb` to launch the demo
 ```python
@@ -59,7 +59,7 @@ webcam_demo()                               # press Q to quit
 predict_single_image(r"path/to/image.jpg")  # or test a single image
 ```
 
-### Option B — Terminal (app.py)
+#### Option B — Terminal (app.py)
 1. Open `app.py` and set your weights path:
 ```python
 WEIGHTS_PATH = r"C:\Users\YourName\Desktop\FER2013_results\emotion_model.weights.h5"
@@ -75,7 +75,7 @@ Press **Q** to quit.
 
 > **Troubleshooting:** If the webcam window doesn't open, check camera permissions. If weights fail to load, verify `WEIGHTS_PATH` is correct. If TensorFlow errors appear, confirm you're in the right environment.
 
-##  Dataset
+###  Dataset
 FER2013 — 35,887 grayscale 48×48 images, 7 classes. [Download on Kaggle](https://www.kaggle.com/datasets/msambare/fer2013)
 
 | Emotion | Samples | Class Weight |
@@ -88,7 +88,7 @@ FER2013 — 35,887 grayscale 48×48 images, 7 classes. [Download on Kaggle](http
 | Surprise | 4,002 | 2.0× |
 | Disgust | 436 | 9.4× |
 
-##  Model Architecture
+###  Model Architecture
 VGG-inspired CNN — 1,899,751 params (7.25 MB), built for 48×48 grayscale input.
 ```
 Input (48 × 48 × 1)
@@ -102,7 +102,7 @@ Input (48 × 48 × 1)
 └── Dense(7, softmax)
 ```
 
-##  Training Details
+###  Training Details
 | Hyperparameter | Value |
 |----------------|-------|
 | Optimizer | Adam (lr = 0.001) |
@@ -112,14 +112,14 @@ Input (48 × 48 × 1)
 | Early stopping | Patience = 10 epochs |
 | Augmentation | Rotation ±15°, zoom 10%, h-flip |
 
-##  Results
+###  Results
 ~63% validation accuracy on FER2013. Fear/Sad confusion is expected and mirrors human inter-rater disagreement on this dataset.
 
-##  Known Limitations
+###  Known Limitations
 - Performance drops in poor lighting
 - Temporal buffer is shared globally — inconsistent with multiple faces in frame
 - Dataset skews toward posed/exaggerated expressions, not subtle real-world ones
 - No GPU support on native Windows (TF ≥ 2.11) — use WSL2 or TensorFlow-DirectML
 
-##  License
+###  License
 Educational use only. FER2013 is publicly available on Kaggle under its own terms of use.
